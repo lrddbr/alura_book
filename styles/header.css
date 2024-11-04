@@ -1,0 +1,134 @@
+.header_menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+.container_btn:checked ~ .container_label > .header_menu-hamburguer {
+    background-image: url("../img/Menu\ Aberto.svg");
+}
+.container_btn:checked ~ .container_label {
+    background: var(--blue-gradient);
+}
+.header {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*libera o absolute a seguir*/
+}
+.container {
+    display: flex;
+    align-items: center;
+}
+.container_img {
+    padding: 1em;
+}
+.list-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+}
+.container_btn:checked~.list-menu { /*O ~ é um combinador CSS, se o container_btn for checked ele irá buscar a seguir algum elemento de classe list-menu e prosseguir colocando display: block nele*/
+    display: block;
+}
+.list-menu_title,
+.list-menu_item {
+    padding: 1em;
+    background-color: var(--white);
+}
+.list-menu_title {
+    color: var(--orange);
+    font-weight: 700;
+}
+.list-menu_link {
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+.container_btn {
+    display: none;
+}
+.title_container {
+    display: none;
+}
+.options {
+    display: none;
+}
+.text_container {
+    display: none;
+}
+@media screen and (min-width: 1024px) { /*Media query, serve para aplicar estilização em uma determinada medida de tela*/
+    .title_container, 
+    .title_container-bold {
+        font-family: var(--secundary-font);
+        font-size: 30px;
+    }
+    .title_container {
+        font-weight: 400;
+        display: block;
+    }
+    .title_container-bold {
+        font-weight: 700;
+    }
+    .options {
+        display: flex;
+    }
+    .item_options {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+    .link_options {
+        text-decoration: none;
+        color: var(--black)
+    }
+    .container_img-transparent {
+        display: none;
+    }
+    .header_menu-hamburguer {
+        display: none;
+    }
+    .btn_options:checked ~ .list-menu {
+        display: block;
+        width: auto;
+    }
+    .btn_options {
+        display: none;
+    }
+    .btn_options:checked ~ .label_options > .item_options {
+        background: var(--blue-gradient);
+        color: var(--white);
+    }
+    .item_options {
+        padding: 2em 1em;
+    }
+    .list-menu_item:hover {
+        background: var(--blue-gradient);
+    }
+    .list-menu_item:hover > .list-menu_link {
+        -webkit-text-fill-color: var(--white); /*Criando a variavel blue_gradient, associamos a cor a uma imagem, o webkit é a unica maneira de aplicar cor sobre isso*/
+        text-decoration: none;
+    }
+}
+@media screen and (min-width: 1296px) {
+    .link_container {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--black);
+    }
+    .header {
+        padding: 0 2em;
+    }
+    .options {
+        margin-right: auto;
+    }
+    .text_container {
+        display: block;
+    }
+}
